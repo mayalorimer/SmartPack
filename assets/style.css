@@ -1,3 +1,4 @@
+
 userQuizHeader {
     display: none;
 }
@@ -9,3 +10,8 @@ userQuiz {
     background-color: #fff;
     color: black;
 }
+
+main {
+    text-align: center;
+}
+
