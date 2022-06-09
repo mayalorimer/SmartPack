@@ -1,3 +1,16 @@
+const userQuizHeader = document.getElementById("userQuizHeader");
+const landingPage = document.getElementById("landing-page");
+const flightSearch = document.getElementById("flight-search");
+const flightForm = document.getElementById("flight-query");
+const userQuizHeader = document.getElementById("user-quiz-header");
+const userQuiz = document.getElementById("user-quiz");
+const question = document.getElementById("question");
+const answerA = document.getElementById("a");
+const answerB = document.getElementById("b");
+const answerC = document.getElementById("c");
+
+userQuizHeader.addEventListener('click',)
+
 // list of variables to verify
 // rain = chance of rain
 // temp = temperature from the forecast in farenheight 
