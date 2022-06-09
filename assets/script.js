@@ -3,14 +3,15 @@
 // temp = temperature from the forecast in farenheight 
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var lat = 51.509865;
-var long = -0.118092;
+var lat = 51.5880;
+var long = 19.7496;
 var Ktemp;
 var temp; 
+var weather;
 
 var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
-function getApi(){
+function weatherApi(){
     fetch(weatherUrl)
         .then(function(response){
             return response.json();
@@ -18,27 +19,26 @@ function getApi(){
         .then(function (data) {
             console.log(data);
             Ktemp = data.list[1].main.temp; 
-            temp = Math.floor((Ktemp - 273)*(9/5) + 32);
-            rain = data.list[1].pop; 
-            rain2 = data.list[1].weather.main;
+            temp = Math.floor((Ktemp - 273)*(9/5) + 32); 
+            weather = data.list[1].weather[0].main;
             console.log(temp);
-            console.log(rain);
-            console.log(rain2);
+            console.log(weather);
         })
 }
 
-
-getApi();
-
+// returns temp and weather which one of the possible returns is rain
+weatherApi();
 
 /*
+// array to hold the items in the packing list
 var packingList = [];
-
 //if the weather forcasts rain
-if(rain) {
+if(weather == "Rain") {
     packingList.push("rain jacket"); 
 }
+console.log(packingList);
 
+/*
 //if you run hot
 if (runHot) {
     if (temp < 50) {
@@ -69,7 +69,7 @@ else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
     }
 }
-
+/*
 if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
 }
@@ -87,3 +87,4 @@ if (both relax and push){
 }
 
 */
+
