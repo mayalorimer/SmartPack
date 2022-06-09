@@ -26,6 +26,7 @@ function weatherApi(){
         })
 }
 
+
 // returns temp and weather which one of the possible returns is rain
 weatherApi();
 
