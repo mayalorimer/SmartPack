@@ -1,3 +1,26 @@
+const landingPage = document.getElementById('landing-page');
+const flightSearch = document.getElementById('flight-search');
+const flightForm = document.getElementById('flight-query');
+const flightSearchBtn = document.getElementById('submit-flight-btn');
+const userQuizHeader = document.getElementById('user-quiz-header');
+const userQuiz = document.getElementById('user-quiz');
+const question = document.getElementById('question');
+
+var airline = document.getElementById("#airline");
+var flightNumber = document.getElementById("#flight-number");
+var flightDate = document.getElementById("#flight-date");
+
+
+
+//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
+var lat = 51.5880;
+var long = 19.7496;
+var Ktemp;
+var temp; 
+var weather;
+
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
+
 var flightNum = "";
 var airLine = "";
 var flightDate = "";
@@ -8,7 +31,11 @@ var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&acces
 var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
 var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
 
-
+flightSearchBtn.addEventListener('click', function () {
+    flightSearch.style.display = "none";
+    landingPage.style.display = "none";
+    userQuizHeader.style.display = "block";
+});
 
 function getApi() {
     
@@ -51,24 +78,7 @@ function getApi() {
     
     }
 
-const landingPage = document.getElementById("landing-page");
-const flightSearch = document.getElementById("flight-search");
-const flightForm = document.getElementById("flight-query");
-const userQuizHeader = document.getElementById("user-quiz-header");
-const userQuiz = document.getElementById("user-quiz");
-const question = document.getElementById("question");
-const answerA = document.getElementById("a");
-const answerB = document.getElementById("b");
-const answerC = document.getElementById("c");
 
-
-
-//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var Ktemp;
-var temp; 
-var weather;
-
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 function weatherApi(){
     fetch(weatherUrl)
@@ -101,7 +111,6 @@ else {
 console.log(packingList);
 
 
-//if you run hot
 //if (runHot) {
     if (temp < 50) {
         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
@@ -131,6 +140,7 @@ else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
     }
 }
+
 /*
 if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
@@ -148,14 +158,14 @@ if (both relax and push){
     packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
 }
 
-*/
+
 
 // Custom list
 
-$("#custom-item-add").click( function() {
-	customItemAdd();
-	$("body, html").scrollTop( $("#custom-items").offset().top );
-}); 
+// $("#custom-item-add").click( function() {
+// 	customItemAdd();
+// 	$("body, html").scrollTop( $("#custom-items").offset().top );
+// }); 
 
 // Add custom item to the list of generated items.
 function customItemAdd() {
@@ -200,4 +210,4 @@ function customItemAdd() {
 
 // let name = localStorage.getItem('itemsName');
 // alert('Items' + itemsName);
-
+*/
