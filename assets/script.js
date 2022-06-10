@@ -103,44 +103,6 @@ weatherApi();
 
 createElements(dataObject);
 	
-function createElements(data) {
-	
-	var list = document.getElementById("page-list");
-
-    $.each(data, function(index, value) {
-		var ElLabel, ElValue, wrap;
-		ElLabel = document.createElement("P");
-		ElValue = document.createElement("P");
-		wrap = document.createElement("P");
-		$(ElLabel).addClass("list-item-label");
-		$(ElValue).addClass("value");
-		$(wrap).addClass("wrap");
-		$(wrap).attr('id', index);
-		
-		// if the value is an array (ie a group of other items), loop over that array and create subitems for each.
-		if ( $.isArray(value) ) {
-			ElLabel.innerHTML = index;
-			ElValue.innerHTML = "";
-			
-			value.forEach(function(index) {
-				var ElItem = document.createElement("P");
-				$(ElItem).addClass("subitem");
-				ElItem.innerHTML = index;
-				$(ElItem).attr('id', index);
-				ElValue.appendChild(ElItem);
-			});
-			
-		} else {
-			ElLabel.innerHTML = index;
-			ElValue.innerHTML = value;
-		}
-		
-		wrap.appendChild(ElLabel);
-		wrap.appendChild(ElValue);
-		list.appendChild(wrap);
-		
-	});
-}
 
 // array to hold the items in the packing list
 var packingList = [];
