@@ -101,3 +101,54 @@ if (both relax and push){
 
 */
 
+// Custom list
+
+$("#custom-item-add").click( function() {
+	customItemAdd();
+	$("body, html").scrollTop( $("#custom-items").offset().top );
+}); 
+
+// Add custom item to the list of generated items.
+function customItemAdd() {
+
+	// prevent default
+	event.preventDefault();
+
+	// Show the custom-items wrap div 
+	if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
+		$("#custom-items").show(200);
+	}
+
+	// make the div glow 
+	$("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
+	$("#custom-items").delay(300).queue(function(){
+		$(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
+	});
+
+	// create a new subitem in that div, give it the value from the custom-item-value box. Clear that box. Check to see if custom-items is all checked off (because it isn't, because we JUST added something, so this will reset it)
+	if ( $("#custom-item-value").val() ) {
+		customEl = document.createElement("p");
+		$(customEl).addClass("subitem");
+		$(customEl).text( $("#custom-item-value").val() );
+		document.querySelector("#custom-items .value").appendChild( customEl );
+		$("#custom-item-value").val('');
+		
+		checkDone( $(customEl) );
+	}
+
+}
+
+
+// localStorage.setItem("itemsName", "value");
+// localStorage.getItem("itemsName")
+// localStorage.removeItem("itemsname")
+// localStorage.clear()
+
+// sessionStorage.setItem("itemname", "value") // saves the data in the item
+// sessionStorage.getItem("itemname")          // get the data in the item
+// sessionStorage.removeItem("itemname")       // removes the item
+// sessionStorage.clear()                      // removes all items
+
+// let name = localStorage.getItem('itemsName');
+// alert('Items' + itemsName);
+
