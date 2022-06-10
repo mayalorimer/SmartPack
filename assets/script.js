@@ -11,9 +11,6 @@ const answerC = document.getElementById("c");
 
 userQuizHeader.addEventListener('click',)
 
-// list of variables to verify
-// rain = chance of rain
-// temp = temperature from the forecast in farenheight 
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
 var lat = 51.5880;
@@ -43,12 +40,14 @@ function weatherApi(){
 // returns temp and weather which one of the possible returns is rain
 weatherApi();
 
-/*
 // array to hold the items in the packing list
 var packingList = [];
 //if the weather forcasts rain
 if(weather == "Rain") {
     packingList.push("rain jacket"); 
+}
+else {
+    packingList.push("jacket");
 }
 console.log(packingList);
 
