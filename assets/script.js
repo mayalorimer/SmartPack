@@ -1,42 +1,14 @@
-const landingPage = document.getElementById('landing-page');
-const flightSearch = document.getElementById('flight-search');
-const flightForm = document.getElementById('flight-query');
-const flightSearchBtn = document.getElementById('submit-flight-btn');
-const userQuizHeader = document.getElementById('user-quiz-header');
-const userQuiz = document.getElementById('user-quiz');
-const question = document.getElementById('question');
-
-var airline = document.getElementById("#airline");
-var flightNumber = document.getElementById("#flight-number");
-var flightDate = document.getElementById("#flight-date");
-
-
-
-//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var lat = 51.5880;
-var long = 19.7496;
-var Ktemp;
-var temp; 
-var weather;
-
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
-
 var flightNum = "";
 var airLine = "";
 var flightDate = "";
-var latitude ="";
-var longitude = "";
+var latitudeNum ="";
+var longitudeNum = "";
 var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
 var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&access_key=55013be62a6b251b0154473a727b8052";
 var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
 var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
 
-flightSearchBtn.addEventListener('click', function () {
-    getApi();
-    flightSearch.style.display = "none";
-    landingPage.style.display = "none";
-    userQuizHeader.style.display = "block";
-});
+
 
 function getApi() {
     
@@ -79,6 +51,15 @@ function getApi() {
     
     }
 
+const userQuizHeader = document.getElementById("userQuizHeader");
+const landingPage = document.getElementById("landing-page");
+const flightSearch = document.getElementById("flight-search");
+const flightForm = document.getElementById("flight-query");
+const userQuiz = document.getElementById("user-quiz");
+const question = document.getElementById("question");
+const answerA = document.getElementById("a");
+const answerB = document.getElementById("b");
+const answerC = document.getElementById("c");
 
 userQuizHeader.addEventListener('click',)
 
@@ -90,6 +71,16 @@ userQuizHeader.addEventListener('click',)
 
 var lat = 51.509865;
 var long = -0.118092;
+
+
+//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
+var lat = 51.5880;
+var long = 19.7496;
+var Ktemp;
+var temp; 
+var weather;
+
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 function weatherApi(){
     fetch(weatherUrl)
@@ -162,44 +153,6 @@ else {
 }
 console.log(packingList);
 
-<<<<<<< HEAD
-=======
-
-//if (runHot) {
-    if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
-    }
-    else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "light jacket");
-    }
-    else if (temp >= 65 && temp < 75) {
-        packingList.push("shorts", "short sleeves", "light jacket"); 
-    }
-    else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
-    }
-/*}
-//if you run cold
-else {
-    if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
-    }
-    else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "moderate jacket");
-    }
-    else if (temp >= 65 && temp < 75) {
-        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket"); 
-    }
-    else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
-    }
-}
-
-/*
-if (business) {
-    packingList.push("dress shoes", "slacks", "blazer", "formal top");
-}
->>>>>>> cbec5d3790fd2603962b7e62556d014f83a9b548
 
 // //if you run hot
 // if (runHot) {
@@ -249,17 +202,13 @@ if (business) {
 // }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cbec5d3790fd2603962b7e62556d014f83a9b548
 
 // Custom list
 
-// $("#custom-item-add").click( function() {
-// 	customItemAdd();
-// 	$("body, html").scrollTop( $("#custom-items").offset().top );
-// }); 
+$("#custom-item-add").click( function() {
+	customItemAdd();
+	$("body, html").scrollTop( $("#custom-items").offset().top );
+}); 
 
 // Add custom item to the list of generated items.
 function customItemAdd() {
@@ -271,12 +220,6 @@ function customItemAdd() {
 	if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
 		$("#custom-items").show(200);
 	}
-
-	// make the div glow 
-	$("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
-	$("#custom-items").delay(300).queue(function(){
-		$(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
-	});
 
 	// create a new subitem in that div, give it the value from the custom-item-value box. Clear that box. Check to see if custom-items is all checked off (because it isn't, because we JUST added something, so this will reset it)
 	if ( $("#custom-item-value").val() ) {
@@ -290,23 +233,5 @@ function customItemAdd() {
 	}
 
 }
-<<<<<<< HEAD
    // for writing to local storage
    localStorage.setItem('list', JSON.stringify(list));
-=======
-
-
-// localStorage.setItem("itemsName", "value");
-// localStorage.getItem("itemsName")
-// localStorage.removeItem("itemsname")
-// localStorage.clear()
-
-// sessionStorage.setItem("itemname", "value") // saves the data in the item
-// sessionStorage.getItem("itemname")          // get the data in the item
-// sessionStorage.removeItem("itemname")       // removes the item
-// sessionStorage.clear()                      // removes all items
-
-// let name = localStorage.getItem('itemsName');
-// alert('Items' + itemsName);
-*/
->>>>>>> cbec5d3790fd2603962b7e62556d014f83a9b548
