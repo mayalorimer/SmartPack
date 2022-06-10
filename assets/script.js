@@ -1,3 +1,27 @@
+const userQuizHeader = document.getElementById("userQuizHeader");
+const landingPage = document.getElementById("landing-page");
+const flightSearch = document.getElementById("flight-search");
+const flightForm = document.getElementById("flight-query");
+const flightSearchBtn = document.getElementById("submit-flight-btn");
+const userQuizHeader = document.getElementById("user-quiz-header");
+const userQuiz = document.getElementById("user-quiz");
+const question = document.getElementById("question");
+
+var airline = document.getElementById("ariline");
+var flightNumber = document.getElementById("flight-number")
+var flightDate = document.getElementById("flight-date");
+
+
+
+//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
+var lat = 51.5880;
+var long = 19.7496;
+var Ktemp;
+var temp; 
+var weather;
+
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
+
 var flightNum = "";
 var airLine = "";
 var flightDate = "";
@@ -51,27 +75,7 @@ function getApi() {
     
     }
 
-const userQuizHeader = document.getElementById("userQuizHeader");
-const landingPage = document.getElementById("landing-page");
-const flightSearch = document.getElementById("flight-search");
-const flightForm = document.getElementById("flight-query");
-const userQuizHeader = document.getElementById("user-quiz-header");
-const userQuiz = document.getElementById("user-quiz");
-const question = document.getElementById("question");
-const answerA = document.getElementById("a");
-const answerB = document.getElementById("b");
-const answerC = document.getElementById("c");
 
-
-
-//var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var lat = 51.5880;
-var long = 19.7496;
-var Ktemp;
-var temp; 
-var weather;
-
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 function weatherApi(){
     fetch(weatherUrl)
