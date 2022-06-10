@@ -8,9 +8,15 @@ const question = document.getElementById('question');
 
 var airline = document.getElementById("#airline");
 var flightNumber = document.getElementById("#flight-number");
-var flightDate = document.getElementById("#flight-date");
+var flightDate = $('#flight-date');
 
 
+$(function () {
+    $('#flight-date').datepicker({
+        changeMonth: true,
+        changeYear: true,
+    });
+});
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
 var lat = 51.5880;
