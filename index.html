@@ -49,6 +49,7 @@
         <form id="flight-query">
           <label for="airline">AIRLINE:</label>
           <select id="airline" name="airline">
+            <!--value sets CallSign class sets IATA code, id sets ICAO code,-->
             <option value="select">make a selection</option>
             <option value="ALASKA" class="AS" id="ASA">Alaska Airlines</option>
             <option value="AMERICAN" class="AA" id="AAL">American Airlines</option>
@@ -58,10 +59,9 @@
             <option value="SOUTHWEST" class="WN" id="SWA">Southwest Airlines</option>
             <option value="SPIRIT WINGS" class="NK" id="NKS">Spirit Airlines</option>
             <option value="UNITED" class="UA" id="UAL">United Airlines</option>
+          </select>
           <label for="flight-number">FLIGHT #:</label>
           <input type="text" id="flight-number" name="flight-number">
-          <label for="flight-date">FLIGHT DATE:</label>
-          <input type="text" id="flight-date" name="flight-date">
           <button id="submit-flight-btn">SEARCH</button>
         </form>
       </div>
@@ -85,7 +85,6 @@
       </div>
 
     </main>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>
 </body>
