@@ -24,8 +24,8 @@ var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + 
 var flightNum = "";
 var airLine = "";
 var flightDate = "";
-var latitudeNum ="";
-var longitudeNum = "";
+var latitude ="";
+var longitude = "";
 var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
 var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&access_key=55013be62a6b251b0154473a727b8052";
 var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
@@ -111,36 +111,36 @@ else {
 console.log(packingList);
 
 
-//if you run hot
-// if (runHot) {
-//     if (temp < 50) {
-//         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
-//     }
-//     else if (temp >= 50 && temp < 65) {
-//         packingList.push("long pants", "long sleeve shirt", "light jacket");
-//     }
-//     else if (temp >= 65 && temp < 75) {
-//         packingList.push("shorts", "short sleeves", "light jacket"); 
-//     }
-//     else {
-//         packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
-//     }
-// }
-// //if you run cold
-// else {
-//     if (temp < 50) {
-//         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
-//     }
-//     else if (temp >= 50 && temp < 65) {
-//         packingList.push("long pants", "long sleeve shirt", "moderate jacket");
-//     }
-//     else if (temp >= 65 && temp < 75) {
-//         packingList.push("long pants", "short sleeves", "long sleeves", "light jacket"); 
-//     }
-//     else {
-//         packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
-//     }
-// }
+//if (runHot) {
+    if (temp < 50) {
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+    }
+    else if (temp >= 50 && temp < 65) {
+        packingList.push("long pants", "long sleeve shirt", "light jacket");
+    }
+    else if (temp >= 65 && temp < 75) {
+        packingList.push("shorts", "short sleeves", "light jacket"); 
+    }
+    else {
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
+    }
+/*}
+//if you run cold
+else {
+    if (temp < 50) {
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+    }
+    else if (temp >= 50 && temp < 65) {
+        packingList.push("long pants", "long sleeve shirt", "moderate jacket");
+    }
+    else if (temp >= 65 && temp < 75) {
+        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket"); 
+    }
+    else {
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
+    }
+}
+
 /*
 if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
