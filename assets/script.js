@@ -240,43 +240,5 @@ function customItemAdd() {
 	}
 
 }
-
-var i;
-
-console.log("local storage");
-for (i = 0; i < localStorage.length; i++)   {
-    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-}
-
-console.log("session storage");
-for (i = 0; i < sessionStorage.length; i++) {
-    console.log(sessionStorage.key(i) + "=[" + sessionStorage.getItem(sessionStorage.key(i)) + "]");
-}
-
-// for getting data from local storage
-const getLocalStorage = () => {
-    let list = localStorage.getItem('list')
-    if (list) {
-     return (list = JSON.parse(localStorage.getItem('list')))
-    }
-    else {
-     return []
-    }
-   }
-   
    // for writing to local storage
-   localStorage.setItem('list', JSON.stringify(list))
-
-// localStorage.setItem("itemsName", "value");
-// localStorage.getItem("itemsName")
-// localStorage.removeItem("itemsname")
-// localStorage.clear()
-
-// sessionStorage.setItem("itemname", "value") // saves the data in the item
-// sessionStorage.getItem("itemname")          // get the data in the item
-// sessionStorage.removeItem("itemname")       // removes the item
-// sessionStorage.clear()                      // removes all items
-
-// let name = localStorage.getItem('itemsName');
-// alert('Items' + itemsName);
-
+   localStorage.setItem('list', JSON.stringify(list));
