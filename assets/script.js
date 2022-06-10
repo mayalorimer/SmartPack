@@ -32,6 +32,7 @@ var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a
 var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
 
 flightSearchBtn.addEventListener('click', function () {
+    getApi();
     flightSearch.style.display = "none";
     landingPage.style.display = "none";
     userQuizHeader.style.display = "block";

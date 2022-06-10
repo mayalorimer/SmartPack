@@ -48,7 +48,16 @@
       <div id="flight-search">
         <form id="flight-query">
           <label for="airline">AIRLINE:</label>
-          <input type="text" id="airline" name="airline">
+          <select id="airline" name="airline">
+            <option value="select">make a selection</option>
+            <option value="ALASKA" class="AS" id="ASA">Alaska Airlines</option>
+            <option value="AMERICAN" class="AA" id="AAL">American Airlines</option>
+            <option value="DELTA" class="DL" id="DAL">Delta Air Lines</option>
+            <option value="HAWAIIAN" class="HA" id="HAL">Hawaiian Airlines</option>
+            <option value="JETBLUE" class="B6" id="JBU">JetBlue</option>
+            <option value="SOUTHWEST" class="WN" id="SWA">Southwest Airlines</option>
+            <option value="SPIRIT WINGS" class="NK" id="NKS">Spirit Airlines</option>
+            <option value="UNITED" class="UA" id="UAL">United Airlines</option>
           <label for="flight-number">FLIGHT #:</label>
           <input type="text" id="flight-number" name="flight-number">
           <label for="flight-date">FLIGHT DATE:</label>
