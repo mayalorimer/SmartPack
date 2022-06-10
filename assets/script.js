@@ -8,7 +8,7 @@ const userQuiz = document.getElementById("user-quiz");
 const question = document.getElementById("question");
 
 var airline = document.getElementById("ariline");
-var flightNumber = document.getElementById("flight-number")
+var flightNumber = document.getElementById("flight-number");
 var flightDate = document.getElementById("flight-date");
 
 
