@@ -50,53 +50,61 @@ function getApi() {
         console.log(airLine) 
     
     }
-  
-  
 
-    
-    
-   
-// list of variables to verify
-// rain = chance of rain
-// temp = temperature from the forecast in farenheight 
+const userQuizHeader = document.getElementById("userQuizHeader");
+const landingPage = document.getElementById("landing-page");
+const flightSearch = document.getElementById("flight-search");
+const flightForm = document.getElementById("flight-query");
+const userQuizHeader = document.getElementById("user-quiz-header");
+const userQuiz = document.getElementById("user-quiz");
+const question = document.getElementById("question");
+const answerA = document.getElementById("a");
+const answerB = document.getElementById("b");
+const answerC = document.getElementById("c");
+
+userQuizHeader.addEventListener('click',)
+
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-// var lat = 51.509865;
-// var long = -0.118092;
-// var Ktemp;
-// var temp; 
+var lat = 51.5880;
+var long = 19.7496;
+var Ktemp;
+var temp; 
+var weather;
 
-// var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
-// function getApi(){
-//     fetch(weatherUrl)
-//         .then(function(response){
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//             Ktemp = data.list[1].main.temp; 
-//             temp = Math.floor((Ktemp - 273)*(9/5) + 32);
-//             rain = data.list[1].pop; 
-//             rain2 = data.list[1].weather.main;
-//             console.log(temp);
-//             console.log(rain);
-//             console.log(rain2);
-//         })
-// }
-
-
-getApi();
-
-
-/*
-var packingList = [];
-
-//if the weather forcasts rain
-if(rain) {
-    packingList.push("rain jacket"); 
+function weatherApi(){
+    fetch(weatherUrl)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            Ktemp = data.list[1].main.temp; 
+            temp = Math.floor((Ktemp - 273)*(9/5) + 32); 
+            weather = data.list[1].weather[0].main;
+            console.log(temp);
+            console.log(weather);
+        })
 }
 
+
+// returns temp and weather which one of the possible returns is rain
+weatherApi();
+
+// array to hold the items in the packing list
+var packingList = [];
+//if the weather forcasts rain
+if(weather == "Rain") {
+    packingList.push("rain jacket"); 
+}
+else {
+    packingList.push("jacket");
+}
+console.log(packingList);
+
+/*
 //if you run hot
 if (runHot) {
     if (temp < 50) {
@@ -127,7 +135,7 @@ else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
     }
 }
-
+/*
 if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
 }
@@ -145,3 +153,55 @@ if (both relax and push){
 }
 
 */
+
+// Custom list
+
+$("#custom-item-add").click( function() {
+	customItemAdd();
+	$("body, html").scrollTop( $("#custom-items").offset().top );
+}); 
+
+// Add custom item to the list of generated items.
+function customItemAdd() {
+
+	// prevent default
+	event.preventDefault();
+
+	// Show the custom-items wrap div 
+	if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
+		$("#custom-items").show(200);
+	}
+
+	// make the div glow 
+	$("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
+	$("#custom-items").delay(300).queue(function(){
+		$(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
+	});
+
+	// create a new subitem in that div, give it the value from the custom-item-value box. Clear that box. Check to see if custom-items is all checked off (because it isn't, because we JUST added something, so this will reset it)
+	if ( $("#custom-item-value").val() ) {
+		customEl = document.createElement("p");
+		$(customEl).addClass("subitem");
+		$(customEl).text( $("#custom-item-value").val() );
+		document.querySelector("#custom-items .value").appendChild( customEl );
+		$("#custom-item-value").val('');
+		
+		checkDone( $(customEl) );
+	}
+
+}
+
+
+// localStorage.setItem("itemsName", "value");
+// localStorage.getItem("itemsName")
+// localStorage.removeItem("itemsname")
+// localStorage.clear()
+
+// sessionStorage.setItem("itemname", "value") // saves the data in the item
+// sessionStorage.getItem("itemname")          // get the data in the item
+// sessionStorage.removeItem("itemname")       // removes the item
+// sessionStorage.clear()                      // removes all items
+
+// let name = localStorage.getItem('itemsName');
+// alert('Items' + itemsName);
+
