@@ -62,7 +62,6 @@ const answerA = document.getElementById("a");
 const answerB = document.getElementById("b");
 const answerC = document.getElementById("c");
 
-userQuizHeader.addEventListener('click',)
 
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
