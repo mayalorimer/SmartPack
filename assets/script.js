@@ -9,7 +9,6 @@ const answerA = document.getElementById("a");
 const answerB = document.getElementById("b");
 const answerC = document.getElementById("c");
 
-userQuizHeader.addEventListener('click',)
 
 // list of variables to verify
 // rain = chance of rain
