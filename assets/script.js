@@ -1,3 +1,56 @@
+var flightNum = "";
+var airLine = "";
+var flightDate = "";
+var latitudeNum ="";
+var longitudeNum = "";
+var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&access_key=55013be62a6b251b0154473a727b8052";
+var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
+var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
+
+
+
+function getApi() {
+    
+    fetch(airlineUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function(data){
+        console.log(data)
+        console.log(data.data[0])
+    displayFlight(data.data[0])
+    displayLongitude(data.data[0])
+    displayLatitude(data.data[0])
+    displayAirline(data.data[0])
+      })
+    }
+     
+  getApi();
+  
+  function displayFlight(flight){
+      console.log(flight)
+      flightDate = flight.flight_date
+      console.log(flightDate)
+  }
+
+  function displayLongitude(longitude){
+      longitude = longitude.longitude
+      console.log (longitude)
+    }
+
+  function displayLatitude(latitude){
+      latitude = latitude.latitude
+      console.log(latitude)
+    }
+   
+    function displayAirline(airline){
+        console.log(airline)
+        airLine = airline.airline_name  
+        console.log(airLine) 
+    
+    }
+
 const userQuizHeader = document.getElementById("userQuizHeader");
 const landingPage = document.getElementById("landing-page");
 const flightSearch = document.getElementById("flight-search");
