@@ -1,9 +1,9 @@
 
-userQuizHeader {
+#user-quiz-header {
     display: none;
 }
 
-userQuiz {
+#user-quiz {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -13,4 +13,8 @@ userQuiz {
 
 main {
     text-align: center;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
 }
