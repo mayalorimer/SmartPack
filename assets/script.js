@@ -1,8 +1,8 @@
 var flightNum = "";
 var airLine = "";
 var flightDate = "";
-var latitudeNum ="";
-var longitudeNum = "";
+var latitude ="";
+var longitude = "";
 var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
 var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&access_key=55013be62a6b251b0154473a727b8052";
 var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
@@ -51,7 +51,6 @@ function getApi() {
     
     }
 
-const userQuizHeader = document.getElementById("userQuizHeader");
 const landingPage = document.getElementById("landing-page");
 const flightSearch = document.getElementById("flight-search");
 const flightForm = document.getElementById("flight-query");
@@ -65,13 +64,11 @@ const answerC = document.getElementById("c");
 
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var lat = 51.5880;
-var long = 19.7496;
 var Ktemp;
 var temp; 
 var weather;
 
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 function weatherApi(){
     fetch(weatherUrl)
@@ -103,9 +100,9 @@ else {
 }
 console.log(packingList);
 
-/*
+
 //if you run hot
-if (runHot) {
+//if (runHot) {
     if (temp < 50) {
         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
     }
@@ -118,7 +115,7 @@ if (runHot) {
     else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
     }
-}
+/*}
 //if you run cold
 else {
     if (temp < 50) {
