@@ -277,6 +277,8 @@ function createList(){
    // for writing to local storage
    localStorage.setItem('packingList', JSON.stringify(packingList))
 
+   document.getElementById("results").innerHTML = localStorage.getItem("packingList");
+
   // CUSTOM ITEMS:
   
   $("#custom-item-add").click( function() {

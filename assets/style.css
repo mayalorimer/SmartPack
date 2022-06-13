@@ -25,3 +25,56 @@ main {
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+#custom-items {
+	display: none;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ie-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+
+#custom-item-field-wrap {
+	position: fixed;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	bottom: 0;
+	left: 0;
+	padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+	width: 100%;
+	background: white;
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80ffffff',GradientType=0 );
+	z-index: 200;
+}
+
+#custom-item-field-wrap p {
+	font-size: 1.5rem;
+	color: #444C62;
+	grid-column: span 2;
+	margin-bottom: 0.5rem;
+}
+
+#custom-item-field-wrap input {
+	border: 0;
+	padding: 1.5rem;
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+}
+
+#custom-item-field-wrap input[type="text"] {
+	background: #DDD;
+	border-radius: 1rem 0 0 1rem;
+	font-weight: 500;
+}
+
+#custom-item-field-wrap input[type="submit"] {
+	border-radius: 0 1rem 1rem 0;
+	background: #CCC;
+	font-weight: 600;
+	font-size: 2rem;
+}
