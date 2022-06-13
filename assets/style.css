@@ -3,6 +3,13 @@
     display: none;
 }
 
+img {
+    width: 50%;
+    height: auto;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
 #user-quiz {
     display: flex;
     justify-content: center;

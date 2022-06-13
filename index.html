@@ -25,7 +25,7 @@
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Logo</a>
+                    
                   </li>
                 </ul>
                 <span class="navbar-text">
@@ -39,8 +39,9 @@
     <main>
 
       <div id="landing-page">
-        <h1>Smart Pack</h1>
-          <h2>Pack Light, Pack Right</h2>
+        <!--<h1>Smart Pack</h1>
+          <h2>Pack Light, Pack Right</h2>-->
+          <img id="logo" src="./assets/photos/SmartPack.png" alt="logo">
             <p>
               SmartPack is your personal travel preparation assistant. No matter the trip, SmartPack will prepare a baseline packing guide to ease the stress of travel! Enter your flight details to get started.
             </p>
@@ -62,28 +63,28 @@
           </select>
           <label for="flight-number">FLIGHT #:</label>
           <input type="text" id="flight-number" name="flight-number">
-          <button id="submit-flight-btn">SEARCH</button>
         </form>
+        <button id="submit-flight-btn">SEARCH</button>
       </div>
       <div id="user-quiz-header">
-        <div id="user-quiz">
-          <div id="question-1">
+        <div id="quiz-design">
+          <form id="user-quiz">
             <h2 id="question-1">Do you like to laze on the beach, see all the sights or a little of both?</h2>
               <input type="radio" name="activity" value="beach-bum" id="beach-bum">Beach-Bum 🏖<br>
               <input type="radio" name="activity" value="adventurer" id="adventurer">Adventurer ⛰<br>
               <input type="radio" name="activity" value="both" id="both">A little of both 🏖 ⛰<br>
             <h2 id="question-2">Are you travelling for business, pleasure or a little of both?</h2>
-              <input type="radio" name="activity" value="business" id="business">I'm a very serious person 👨🏽‍💼<br>
-              <input type="radio" name="activity" value="pleasure" id="pleasure">Hedonism for me 😈<br>
-              <input type="radio" name="activity" value="everything" id="everything">Everything in moderation 👨🏽‍💼 😈<br>
+              <input type="radio" name="purpose" value="business" id="business">I'm a very serious person 👨🏽‍💼<br>
+              <input type="radio" name="purpose" value="pleasure" id="pleasure">Hedonism for me 😈<br>
+              <input type="radio" name="purpose" value="everything" id="everything">Everything in moderation 👨🏽‍💼 😈<br>
             <h2 id="question-3">Do you tend to get hot or cold more easily?</h2>
-              <input type="radio" name="activity" value="cold" id="cold">You'd think I was a lizard 🥶<br>
-              <input type="radio" name="activity" value="hot" id="hot">I'm always too hot 🥵<br>
-              <input type="radio" name="activity" value="inbetween" id="inbetween">Somewhere in between 🥶 🥵<br>
-          </div>
+              <input type="radio" name="temp" value="cold" id="cold">You'd think I was a lizard 🥶<br>
+              <input type="radio" name="temp" value="hot" id="hot">I'm always too hot 🥵<br>
+              <input type="radio" name="temp" value="inbetween" id="inbetween">Somewhere in between 🥶 🥵<br>
+          </form>
+          <button id="submit-quiz-btn" type="submit" form="user-quiz" value="submit">SUBMIT</button>
         </div>
       </div>
-
     </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>
