@@ -6,6 +6,7 @@ const userQuizHeader = document.getElementById('user-quiz-header');
 const userQuiz = document.getElementById('user-quiz');
 const question = document.getElementById('question');
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
+const list = document.getElementById('packing-list');
 
 
 var airline = document.getElementById("airline");
