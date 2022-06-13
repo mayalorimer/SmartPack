@@ -36,6 +36,11 @@ flightSearchBtn.addEventListener('click', function(event) {
 
 
 
+submitQuizBtn.addEventListener('click', function (event) {
+    createList(); 
+})
+
+
 //submitQuizBtn.addEventListener('click', function (event) {
     
 //})
@@ -132,15 +137,14 @@ function getApi(){
 //     }
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var lat = 51.5880;
-var long = 19.7496;
 var Ktemp;
 var temp; 
 var weather;
 
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&appid=c99c17905b00b5b873d957ca08c3669d';
+var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 
+//function to call weather api, returns either rain or not and the average temperature
 function weatherApi(){
     fetch(weatherUrl)
         .then(function(response){
@@ -163,18 +167,20 @@ weatherApi();
 
 // array to hold the items in the packing list
 var packingList = [];
-//if the weather forcasts rain
-if(weather == "Rain") {
+
+function createList(){
+  //if the weather forcasts rain
+  if(weather == "Rain") {
     packingList.push("rain jacket"); 
-}
-else {
+  }
+  else {
     packingList.push("jacket");
-}
-console.log(packingList);
+  }
+  console.log(packingList);
 
 
-//logic statements to create the packing list
-if (hot || inbetween) {
+  //logic statements to create the packing list
+  if (hot || inbetween) {
     if (temp < 50) {
         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
     }
@@ -187,9 +193,9 @@ if (hot || inbetween) {
     else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
     }
-} 
-//if you run cold
-else {
+  } 
+  //if you run cold
+  else {
     if (temp < 50) {
         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
     }
@@ -202,22 +208,22 @@ else {
     else {
         packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
     }
-}
+  }
 
-
-if (business) {
+  // goes through quiz variables to add more items to the list
+  if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
-}
+  }
 
-
-if (beach-bum) {
+  if (beach-bum) {
     packingList.push("bathing suit", "flip flops");
-}
-else if (keepItPushing){
+  }
+  else if (keepItPushing){
   packingList.push("sneakers", "athletic top", "athletic bottoms");
-}
-else { 
+  }
+  else { 
     packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
+  }
 }
 
    // for writing to local storage
