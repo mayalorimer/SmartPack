@@ -10,7 +10,15 @@ const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
 var airline = document.getElementById("#airline");
 var flightNumber = document.getElementById("#flight-number");
-
+var beachBum = document.getElementById("#beach-bum");
+var adventurer = document.getElementById("#adventurer");
+var both = document.getElementById("#both");
+var business = document.getElementById("#business");
+var pleasure = document.getElementById("#pleasure");
+var everything = document.getElementById("#everything");
+var cold = document.getElementById("#cold");
+var hot = document.getElementById("#hot");
+var inbetween = document.getElementById("#inbetween");
 
 var flightNum = "";
 var airLine = "";
@@ -45,6 +53,9 @@ submitQuizBtn.addEventListener('click', function (event) {
     
 //})
 
+function getQuizAnswers() {
+    
+}
 
 function getApi(){
     fetch(flightUrl)
