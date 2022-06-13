@@ -8,26 +8,39 @@ const question = document.getElementById('question');
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
 
-var airline = document.getElementById("#airline");
-var flightNumber = document.getElementById("#flight-number");
-var beachBum = document.getElementById("#beach-bum");
-var adventurer = document.getElementById("#adventurer");
-var both = document.getElementById("#both");
-var business = document.getElementById("#business");
-var pleasure = document.getElementById("#pleasure");
-var everything = document.getElementById("#everything");
-var cold = document.getElementById("#cold");
-var hot = document.getElementById("#hot");
-var inbetween = document.getElementById("#inbetween");
+var airline = document.getElementById("airline");
+var flightNumber = document.getElementById("flight-number");
+// quiz answer variables 
+var beachBum = document.getElementById("beach-bum");
+var adventurer = document.getElementById("adventurer");
+var both = document.getElementById("both");
+var business = document.getElementById("business");
+var pleasure = document.getElementById("pleasure");
+var everything = document.getElementById("everything");
+var cold = document.getElementById("cold");
+var hot = document.getElementById("hot");
+var inbetween = document.getElementById("inbetween");
+
+beachBum = false;
+adventurer = false;
+both = false;
+business = false;
+pleasure = false;
+everything = false; 
+cold = false; 
+hot = false; 
+inbetween = false; 
+
 
 var flightNum = "";
+var flightIata = "";
 var airLine = "";
 var flightDate = "";
 var city = "";
 var latitude ="";
 var longitude = "";
-var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
-var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=55013be62a6b251b0154473a727b8052";
+//var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${flightIata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=";
 var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
 var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
 
@@ -38,7 +51,11 @@ flightSearchBtn.addEventListener('click', function(event) {
     flightSearch.style.display = "none";
     landingPage.style.display = "none";
     userQuizHeader.style.display = "block";
-    getApi();
+    console.log("Hello!");
+    //console.log(flightNumber.value);
+    flightIata = flightNumber.value;
+    console.log(flightIata);
+    getApi(flightIata);
 });
 
 
@@ -57,14 +74,16 @@ function getQuizAnswers() {
     
 }
 
-function getApi(){
+function getApi(iata){
+    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+    console.log(flightUrl);
     fetch(flightUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data){
             console.log(data)
-            console.log(data.data[0])
+            
          })
          //Date
          .then(function displayFlight(flight){
@@ -73,29 +92,29 @@ function getApi(){
              console.log(flightDate)
             })
           //City  
-    fetch(citiesUrl)
-        .then(function displayCity(cities){
-            console.log(cities)
-            city = cities.city_name
-            console.log(city)
-        })
-        .then(function displayLongitude(longitude){
-            longitude = longitude.longitude
-            console.log (longitude)
-          })
-        .then(function displayLatitude(latitude){
-            latitude = latitude.latitude
-            console.log(latitude)
-          })
+    // fetch(citiesUrl)
+    //     .then(function displayCity(cities){
+    //         console.log(cities)
+    //         city = cities.city_name
+    //         console.log(city)
+    //     })
+    //     .then(function displayLongitude(longitude){
+    //         longitude = longitude.longitude
+    //         console.log (longitude)
+    //       })
+    //     .then(function displayLatitude(latitude){
+    //         latitude = latitude.latitude
+    //         console.log(latitude)
+    //       })
 
-    fetch(airlineUrl)
-        .then( function displayAirline(airline){
-            console.log(airline)
-            airLine = airline.airline_name  
-            console.log(airLine)
-        })
-    }
-    getApi();
+    // fetch(airlineUrl)
+    //     .then( function displayAirline(airline){
+    //         console.log(airline)
+    //         airLine = airline.airline_name  
+    //         console.log(airLine)
+    //     })
+     }
+    //getApi();
 
 
 // function getApi() {
