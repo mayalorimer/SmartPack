@@ -8,17 +8,29 @@ const question = document.getElementById('question');
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
 
-var airline = document.getElementById("#airline");
-var flightNumber = document.getElementById("#flight-number");
-var beachBum = document.getElementById("#beach-bum");
-var adventurer = document.getElementById("#adventurer");
-var both = document.getElementById("#both");
-var business = document.getElementById("#business");
-var pleasure = document.getElementById("#pleasure");
-var everything = document.getElementById("#everything");
-var cold = document.getElementById("#cold");
-var hot = document.getElementById("#hot");
-var inbetween = document.getElementById("#inbetween");
+var airline = document.getElementById("airline");
+var flightNumber = document.getElementById("flight-number");
+// quiz answer variables 
+var beachBum = document.getElementById("beach-bum");
+var adventurer = document.getElementById("adventurer");
+var both = document.getElementById("both");
+var business = document.getElementById("business");
+var pleasure = document.getElementById("pleasure");
+var everything = document.getElementById("everything");
+var cold = document.getElementById("cold");
+var hot = document.getElementById("hot");
+var inbetween = document.getElementById("inbetween");
+
+beachBum = false;
+adventurer = false;
+both = false;
+business = false;
+pleasure = false;
+everything = false; 
+cold = false; 
+hot = false; 
+inbetween = false; 
+
 
 var flightNum = "";
 var airLine = "";
@@ -35,6 +47,10 @@ var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_k
 
 flightSearchBtn.addEventListener('click', function(event) {
     event.preventDefault();
+    console.log("Hello!");
+    //console.log(flightNumber.value);
+    flightNum = flightNumber.value;
+    console.log(flightNum);
     flightSearch.style.display = "none";
     landingPage.style.display = "none";
     userQuizHeader.style.display = "block";
