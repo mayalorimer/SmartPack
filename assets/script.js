@@ -240,21 +240,29 @@ function createList(){
     }
   }
 
-  // goes through quiz variables to add more items to the list
+  // goes through quiz variables for question 2
   if (business) {
     packingList.push("dress shoes", "slacks", "blazer", "formal top");
   }
+  else if (pleasure) {
+    packingList.push("flip flops", "going out clothes");
+  }
+  else {
+    packingList.push("dress shoes", "slacks", "blazer", "formal top", "flip flops", "going out clothes");
+  }
 
-  if (beach-bum) {
+  // question 1 variables for packing list
+  if (beachBum) {
     packingList.push("bathing suit", "flip flops");
   }
-  else if (keepItPushing){
+  else if (adventurer){
   packingList.push("sneakers", "athletic top", "athletic bottoms");
   }
   else { 
     packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
   }
 }
+
 
    // for writing to local storage
    localStorage.setItem('packingList', JSON.stringify(packingList))
