@@ -63,6 +63,15 @@ flightSearchBtn.addEventListener('click', function(event) {
 
 
 submitQuizBtn.addEventListener('click', function (event) {
+    beachBum.value =
+    adventurer.value = 
+    both.value = 
+    business.value = 
+    pleasure.value = 
+    everything.value = 
+    cold.value =
+    hot.value = 
+    inbetween.value = 
     createList(); 
 })
 
