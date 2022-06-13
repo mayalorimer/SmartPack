@@ -25,22 +25,20 @@ var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_k
 
 
 
-flightSearchBtn.addEventListener('click', function (event) {
+flightSearchBtn.addEventListener('click', function(event) {
     event.preventDefault();
-    getApi();
     flightSearch.style.display = "none";
     landingPage.style.display = "none";
     userQuizHeader.style.display = "block";
+    getApi();
 });
 
 
-function getApi() {
 
-submitQuizBtn.addEventListener('click', function (event) {
+
+//submitQuizBtn.addEventListener('click', function (event) {
     
-})
-
-// function getApi() {
+//})
 
 
 function getApi(){
@@ -261,8 +259,7 @@ else {
     }
   
   }
-  
-  };
+ 
   
      // for writing to local storage
      localStorage.setItem('list', JSON.stringify(list))
