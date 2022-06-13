@@ -96,16 +96,35 @@ function getApi(num, iata){
         })
         .then(function (data){
             console.log(data)
-            
-            
+            var arrivalIata = data.data[0].arrival.iata 
+            console.log(arrivalIata);
+            getLatLon(arrivalIata);   
          })
          //Date
-         .then(function displayFlight(flight){
-             console.log(flight)
-             flightDate = flight.flight_date
-             console.log(flightDate)
-            })
-          //City  
+        //  .then(function displayFlight(flight){
+        //      console.log(flight)
+        //      flightDate = flight.flight_date
+        //      console.log(flightDate)
+        //     })
+        //   //City  
+    
+function getLatLon(arrIata) {
+    var latLongUrl = `https://airlabs.co/api/v9/airports?iata_code=${arrIata}&api_key=b6cd1a32-4676-4ba7-b3c5-48da35d6e7cf`
+    console.log(latLongUrl);
+    fetch(latLongUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data)
+        var lat = data.response[0].lat    
+        var lng = data.response[0].lng
+        console.log(lat, lng);
+        weatherApi(lat, lng);
+        });
+}
+
+
     // fetch(citiesUrl)
     //     .then(function displayCity(cities){
     //         console.log(cities)
@@ -185,11 +204,12 @@ var Ktemp;
 var temp; 
 var weather;
 
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
+
 
 
 //function to call weather api, returns either rain or not and the average temperature
-function weatherApi(){
+function weatherApi(latitude, longitude){
+    var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
     fetch(weatherUrl)
         .then(function(response){
             return response.json();
@@ -201,12 +221,12 @@ function weatherApi(){
             weather = data.list[1].weather[0].main;
             console.log(temp);
             console.log(weather);
+            createList();
         })
 }
 
 
-// returns temp and weather which one of the possible returns is rain
-weatherApi();
+
 	
 
 // array to hold the items in the packing list
@@ -277,7 +297,7 @@ function createList(){
   }
 }
 
-
+console.log(packingList);
    // for writing to local storage
    localStorage.setItem('packingList', JSON.stringify(packingList))
 
