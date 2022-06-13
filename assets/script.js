@@ -10,6 +10,8 @@ const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
 var airline = document.getElementById("airline");
 var flightNumber = document.getElementById("flight-number");
+var departureAirport = document.getElementById("departure-airport");
+
 // quiz answer variables 
 var beachBum = document.getElementById("beach-bum");
 var adventurer = document.getElementById("adventurer");
@@ -53,9 +55,10 @@ flightSearchBtn.addEventListener('click', function(event) {
     userQuizHeader.style.display = "block";
     console.log("Hello!");
     //console.log(flightNumber.value);
-    flightIata = flightNumber.value;
+    flightNum = flightNumber.value;
+    flightIata = departureAirport.value;
     console.log(flightIata);
-    getApi(flightIata);
+    getApi(flightNum, flightIata);
 });
 
 
@@ -83,8 +86,8 @@ function getQuizAnswers() {
     
 }
 
-function getApi(iata){
-    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+function getApi(num, iata){
+    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
     console.log(flightUrl);
     fetch(flightUrl)
         .then(function (response) {
@@ -92,6 +95,7 @@ function getApi(iata){
         })
         .then(function (data){
             console.log(data)
+            
             
          })
          //Date
