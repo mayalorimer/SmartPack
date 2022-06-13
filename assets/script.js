@@ -23,14 +23,13 @@ var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + 
 
 var flightNum = "";
 var airLine = "";
-var flightDate = "";
 var city = "";
 var latitude ="";
 var longitude = "";
-var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=55013be62a6b251b0154473a727b8052`;
-var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=55013be62a6b251b0154473a727b8052";
-var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
-var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
+var flightUrl = `http://api.aviationstack.com/v1/flights?flight_number=${flightNum}&access_key=b81bbd6e9e08b5b35d5b230175c9425c`;
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=b81bbd6e9e08b5b35d5b230175c9425c";
+var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=b81bbd6e9e08b5b35d5b230175c9425c";
+var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=b81bbd6e9e08b5b35d5b230175c9425c";
 
 
 flightSearchBtn.addEventListener('click', function () {
@@ -40,48 +39,21 @@ flightSearchBtn.addEventListener('click', function () {
     userQuizHeader.style.display = "block";
 });
 
-function getApi() {
+// function getApi() {
 
 
 function getApi(){
     fetch(flightUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data){
-            console.log(data)
-            console.log(data.data[0])
-         })
-         //Date
-         .then(function displayFlight(flight){
-             console.log(flight)
-             flightDate = flight.flight_date
-             console.log(flightDate)
-            })
-          //City  
-    fetch(citiesUrl)
-        .then(function displayCity(cities){
-            console.log(cities)
-            city = cities.city_name
-            console.log(city)
-        })
-        .then(function displayLongitude(longitude){
-            longitude = longitude.longitude
-            console.log (longitude)
-          })
-        .then(function displayLatitude(latitude){
-            latitude = latitude.latitude
-            console.log(latitude)
-          })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data.data[0].airline)
+        
 
-    fetch(airlineUrl)
-        .then( function displayAirline(airline){
-            console.log(airline)
-            airLine = airline.airline_name  
-            console.log(airLine)
-        })
-    }
-    getApi();
+    })
+}
+getApi();
 
 
 // function getApi() {
@@ -132,7 +104,7 @@ function getApi(){
     
 
 //     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // const userQuizHeader = document.getElementById("userQuizHeader");//////
 // const landingPage = document.getElementById("landing-page");
 // const flightSearch = document.getElementById("flight-search");
@@ -185,55 +157,55 @@ function getApi(){
 // }
 // console.log(packingList);
 
-    }
+    
 
 
 
-function weatherApi(){
-    fetch(weatherUrl)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            Ktemp = data.list[1].main.temp; 
-            temp = Math.floor((Ktemp - 273)*(9/5) + 32); 
-            weather = data.list[1].weather[0].main;
-            console.log(temp);
-            console.log(weather);
-        })
-}
+// function weatherApi(){
+//     fetch(weatherUrl)
+//         .then(function(response){
+//             return response.json();
+//         })
+//         .then(function (data) {
+//             console.log(data);
+//             Ktemp = data.list[1].main.temp; 
+//             temp = Math.floor((Ktemp - 273)*(9/5) + 32); 
+//             weather = data.list[1].weather[0].main;
+//             console.log(temp);
+//             console.log(weather);
+//         })
+// }
 
 
-// returns temp and weather which one of the possible returns is rain
-weatherApi();
+// // returns temp and weather which one of the possible returns is rain
+// weatherApi();
 
-// array to hold the items in the packing list
-var packingList = [];
-//if the weather forcasts rain
-if(weather == "Rain") {
-    packingList.push("rain jacket"); 
-}
-else {
-    packingList.push("jacket");
-}
-console.log(packingList);
+// // array to hold the items in the packing list
+// var packingList = [];
+// //if the weather forcasts rain
+// if(weather == "Rain") {
+//     packingList.push("rain jacket"); 
+// }
+// else {
+//     packingList.push("jacket");
+// }
+// console.log(packingList);
 
 
 
-//if (runHot) {
-    if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
-    }
-    else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "light jacket");
-    }
-    else if (temp >= 65 && temp < 75) {
-        packingList.push("shorts", "short sleeves", "light jacket"); 
-    }
-    else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
-    }
+// //if (runHot) {
+//     if (temp < 50) {
+//         packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+//     }
+//     else if (temp >= 50 && temp < 65) {
+//         packingList.push("long pants", "long sleeve shirt", "light jacket");
+//     }
+//     else if (temp >= 65 && temp < 75) {
+//         packingList.push("shorts", "short sleeves", "light jacket"); 
+//     }
+//     else {
+//         packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
+//     }
 /*}
 //if you run cold
 else {
