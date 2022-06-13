@@ -5,6 +5,8 @@ const flightSearchBtn = document.getElementById('submit-flight-btn');
 const userQuizHeader = document.getElementById('user-quiz-header');
 const userQuiz = document.getElementById('user-quiz');
 const question = document.getElementById('question');
+const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
 
 var airline = document.getElementById("#airline");
 var flightNumber = document.getElementById("#flight-number");
@@ -22,6 +24,7 @@ var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a
 var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
 
 
+
 flightSearchBtn.addEventListener('click', function (event) {
     event.preventDefault();
     getApi();
@@ -30,7 +33,14 @@ flightSearchBtn.addEventListener('click', function (event) {
     userQuizHeader.style.display = "block";
 });
 
+
 function getApi() {
+
+submitQuizBtn.addEventListener('click', function (event) {
+    
+})
+
+// function getApi() {
 
 
 function getApi(){
