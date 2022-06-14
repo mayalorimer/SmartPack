@@ -33,6 +33,9 @@ everything = false;
 cold = false; 
 hot = false; 
 inbetween = false; 
+var Ktemp;
+var temp; 
+var weather;
 
 
 var flightNum = "";
@@ -66,7 +69,8 @@ flightSearchBtn.addEventListener('click', function(event) {
 
 
 submitQuizBtn.addEventListener('click', function (event) {
-    beachBum.value =
+  event.preventDefault(); 
+/*     beachBum.value =
     adventurer.value = 
     both.value = 
     business.value = 
@@ -74,8 +78,9 @@ submitQuizBtn.addEventListener('click', function (event) {
     everything.value = 
     cold.value =
     hot.value = 
-    inbetween.value = 
-    createList(); 
+    inbetween.value =  */
+  createList(); 
+  displayStorage();
 })
 
 submitQuizBtn.addEventListener('click', function (event) {
@@ -125,9 +130,8 @@ function getLatLon(arrIata) {
 }
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var Ktemp;
-var temp; 
-var weather;
+
+
 
 //function to call weather api, returns either rain or not and the average temperature
 function weatherApi(latitude, longitude){
@@ -143,7 +147,6 @@ function weatherApi(latitude, longitude){
             weather = data.list[1].weather[0].main;
             console.log(temp);
             console.log(weather);
-            createList();
         })
 }	
 
@@ -164,69 +167,71 @@ function createList(){
   //logic statements to create the packing list
   if (hot || inbetween) {
     if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt ");
     }
     else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "light jacket");
+        packingList.push("long pants", "long sleeve shirt", "light jacket ");
     }
     else if (temp >= 65 && temp < 75) {
-        packingList.push("shorts", "short sleeves", "light jacket"); 
+        packingList.push("shorts", "short sleeves", "light jacket "); 
     }
     else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals ");
     }
   } 
   //if you run cold
   else {
     if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt ");
     }
     else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "moderate jacket");
+        packingList.push("long pants", "long sleeve shirt", "moderate jacket ");
     }
     else if (temp >= 65 && temp < 75) {
-        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket"); 
+        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket "); 
     }
     else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket ");
     }
   }
 
   // goes through quiz variables for question 2
   if (business) {
-    packingList.push("dress shoes", "slacks", "blazer", "formal top");
+    packingList.push("dress shoes", "slacks", "blazer", "formal top ");
   }
   else if (pleasure) {
-    packingList.push("flip flops", "going out clothes");
+    packingList.push("flip flops", "going out clothes ");
   }
   else {
-    packingList.push("dress shoes", "slacks", "blazer", "formal top", "flip flops", "going out clothes");
+    packingList.push("dress shoes", "slacks", "blazer", "formal top", "flip flops", "going out clothes ");
   }
 
   // question 1 variables for packing list
   if (beachBum) {
-    packingList.push("bathing suit", "flip flops");
+    packingList.push("bathing suit", "flip flops ");
   }
   else if (adventurer){
-  packingList.push("sneakers", "athletic top", "athletic bottoms");
+  packingList.push("sneakers", "athletic top", "athletic bottoms ");
   }
   else { 
-    packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
+    packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit ");
   }
-}
 
-// adds to local storage
+  // adds to local storage
 localStorage.setItem('packingList', JSON.stringify(packingList))
 
+}
+
+
+var scoreList = document.querySelector(".list");
      //prints the stored list to the page
 function displayStorage(){
   var storedPackingList = JSON.parse(localStorage.getItem("packingList"));
   console.log(storedPackingList); 
-  
   //loops through the array and prints the scores
   for (var i = 0; i < storedPackingList.length; i++){
-    //unsure on this for adding it to the page  
-    storedPackingList[i].innerHTML += '<li>'; 
+    //unsure on this for adding it to the page 
+    scoreList.textContent += '<li>' + storedPackingList[i] + '</li>';
   }
 }
 // console.log(packingList);
@@ -274,5 +279,4 @@ function displayStorage(){
  
   
      // for writing to local storage
-     localStorage.setItem('list', JSON.stringify(list))
-};
+//     localStorage.setItem('list', JSON.stringify(list))
