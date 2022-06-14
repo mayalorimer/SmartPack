@@ -33,6 +33,9 @@ everything = false;
 cold = false; 
 hot = false; 
 inbetween = false; 
+var Ktemp;
+var temp; 
+var weather;
 
 
 var flightNum = "";
@@ -66,7 +69,8 @@ flightSearchBtn.addEventListener('click', function(event) {
 
 
 submitQuizBtn.addEventListener('click', function (event) {
-    beachBum.value =
+  event.preventDefault(); 
+/*     beachBum.value =
     adventurer.value = 
     both.value = 
     business.value = 
@@ -74,8 +78,9 @@ submitQuizBtn.addEventListener('click', function (event) {
     everything.value = 
     cold.value =
     hot.value = 
-    inbetween.value = 
-    createList(); 
+    inbetween.value =  */
+  createList(); 
+  displayStorage();
 })
 
 
@@ -200,10 +205,6 @@ function getLatLon(arrIata) {
 //     }
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var Ktemp;
-var temp; 
-var weather;
-
 
 
 
@@ -221,7 +222,6 @@ function weatherApi(latitude, longitude){
             weather = data.list[1].weather[0].main;
             console.log(temp);
             console.log(weather);
-            createList();
         })
 }
 
@@ -295,20 +295,23 @@ function createList(){
   else { 
     packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
   }
+
+  // adds to local storage
+localStorage.setItem('packingList', JSON.stringify(packingList))
+displayStorage(); 
+
 }
 
-// adds to local storage
-localStorage.setItem('packingList', JSON.stringify(packingList))
 
+var scoreList = document.querySelector("list");
      //prints the stored list to the page
 function displayStorage(){
   var storedPackingList = JSON.parse(localStorage.getItem("packingList"));
   console.log(storedPackingList); 
-  
   //loops through the array and prints the scores
   for (var i = 0; i < storedPackingList.length; i++){
-    //unsure on this for adding it to the page  
-    storedPackingList[i].innerHTML += '<li>'; 
+    //unsure on this for adding it to the page 
+    scoreList.innerHTML +=  storedPackingList[i];
   }
 }
 // console.log(packingList);
@@ -356,4 +359,4 @@ function displayStorage(){
  
   
      // for writing to local storage
-     localStorage.setItem('list', JSON.stringify(list))
+//     localStorage.setItem('list', JSON.stringify(list))
