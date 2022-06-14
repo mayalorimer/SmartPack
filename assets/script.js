@@ -297,7 +297,7 @@ function createList(){
   }
 
   // adds to local storage
-localStorage.setItem('packingList', JSON.stringify(packingList))
+  localStorage.setItem('packingList', JSON.stringify(packingList))
 
 }
 
