@@ -1,3 +1,6 @@
+
+
+
 const landingPage = document.getElementById('landing-page');
 const flightSearch = document.getElementById('flight-search');
 const flightForm = document.getElementById('flight-query');
@@ -46,9 +49,9 @@ var city = "";
 var latitude ="";
 var longitude = "";
 //var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${flightIata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
-var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=";
-var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
-var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=4912d1df2260256904528ba36a474f20";
+var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=4912d1df2260256904528ba36a474f20";
+var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=4912d1df2260256904528ba36a474f20";
 
 
 
@@ -93,7 +96,7 @@ function getQuizAnswers() {
 }
 
 function getApi(num, iata){
-    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=4912d1df2260256904528ba36a474f20`;
     console.log(flightUrl);
     fetch(flightUrl)
         .then(function (response) {
