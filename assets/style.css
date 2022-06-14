@@ -16,24 +16,62 @@
     
 }
 
+#flight-search {
+    
+}
+
+#flight-query {
+    display: flexbox;
+    box-sizing: border-box;
+    border-width: 15px;
+    border-style: solid;
+    color: white;
+    border-color: var(--smartblue);
+    background-color: var(--smartblue);
+    margin-top: 2.5rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    border-radius: 5px;
+}
+
 img {
     width: 50%;
     height: auto;
     margin-top: 5rem;
     margin-bottom: 3rem;
 }
+
+#landing-p {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   margin-left: auto;
+   margin-right: auto; 
+}
+
 #landing-page {
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
     margin-bottom: 5rem;
     margin-top: 5rem;
+    color: white;
+    box-sizing: border-box;
+    border-width: 2px;
+    border-style: solid; 
+    border-color: var(--smartblue);
+    background-color: var(--smartblue);
+    border-radius: 5px;
 }
 
 #note {
     margin-top: 5rem;
 }
 
-
+#submit-flight-btn {
+    border: none;
+    color: white;
+    background-color: var(--smartblue);
+    border-radius: 5px;
+}  
 
 #user-quiz {
     padding-top: 3rem;
