@@ -26,7 +26,7 @@
     margin-top: 2.5rem;
     margin-left: 20rem;
     margin-right: 20rem;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #flight-query {
@@ -40,7 +40,7 @@
     margin-top: 2.5rem;
     margin-left: 20rem;
     margin-right: 20rem;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 img {
@@ -68,7 +68,7 @@ img {
     border-style: solid; 
     border-color: var(--smartblue);
     background-color: var(--smartblue);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #note {

@@ -78,10 +78,10 @@ submitQuizBtn.addEventListener('click', function (event) {
     createList(); 
 })
 
-
-//submitQuizBtn.addEventListener('click', function (event) {
+submitQuizBtn.addEventListener('click', function (event) {
     
-//})
+    }
+);
 
 function getQuizAnswers() {
     
@@ -124,88 +124,10 @@ function getLatLon(arrIata) {
         });
 }
 
-
-    // fetch(citiesUrl)
-    //     .then(function displayCity(cities){
-    //         console.log(cities)
-    //         city = cities.city_name
-    //         console.log(city)
-    //     })
-    //     .then(function displayLongitude(longitude){
-    //         longitude = longitude.longitude
-    //         console.log (longitude)
-    //       })
-    //     .then(function displayLatitude(latitude){
-    //         latitude = latitude.latitude
-    //         console.log(latitude)
-    //       })
-
-    // fetch(airlineUrl)
-    //     .then( function displayAirline(airline){
-    //         console.log(airline)
-    //         airLine = airline.airline_name  
-    //         console.log(airLine)
-    //     })
-     }
-    //getApi();
-
-
-// function getApi() {
-    
-//     fetch(flightUrl)
-//       .then(function (response) {
-//         return response.json();
-//       })
-//       .then(function(data){
-//         console.log(data)
-//         console.log(data.data[0])
-//     displayFlight(data.data[0])
-//     displayCity(data.data[0])
-//     displayLongitude(data.data[0])
-//     displayLatitude(data.data[0])
-//     displayAirline(data.data[0])
-//       })
-//     }
-     
-//   getApi();
-  
-//   function displayFlight(flight){
-//       console.log(flight)
-//       flightDate = flight.flight_date
-//       console.log(flightDate)
-//   }
-
-//   function displayCity(cities){
-//       console.log(cities)
-//       city = cities.city_name
-//       console.log(city)
-//     }
-
-//   function displayLongitude(longitude){
-//       longitude = longitude.longitude
-//       console.log (longitude)
-//     }
-
-//   function displayLatitude(latitude){
-//       latitude = latitude.latitude
-//       console.log(latitude)
-//     }
-   
-//     function displayAirline(airline){
-//         console.log(airline)
-//         airLine = airline.airline_name  
-//         console.log(airLine) 
-    
-
-//     }
-
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
 var Ktemp;
 var temp; 
 var weather;
-
-
-
 
 //function to call weather api, returns either rain or not and the average temperature
 function weatherApi(latitude, longitude){
@@ -223,11 +145,7 @@ function weatherApi(latitude, longitude){
             console.log(weather);
             createList();
         })
-}
-
-
-
-	
+}	
 
 // array to hold the items in the packing list
 var packingList = [];
@@ -357,3 +275,4 @@ function displayStorage(){
   
      // for writing to local storage
      localStorage.setItem('list', JSON.stringify(list))
+};
