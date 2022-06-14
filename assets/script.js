@@ -297,48 +297,62 @@ function createList(){
   }
 }
 
-console.log(packingList);
-   // for writing to local storage
-   localStorage.setItem('packingList', JSON.stringify(packingList))
+// adds to local storage
+localStorage.setItem('packingList', JSON.stringify(packingList))
 
-   document.getElementById("results").innerHTML = localStorage.getItem("packingList");
+     //prints the stored list to the page
+function displayStorage(){
+  var storedPackingList = JSON.parse(localStorage.getItem("packingList"));
+  console.log(storedPackingList); 
+  
+  //loops through the array and prints the scores
+  for (var i = 0; i < storedPackingList.length; i++){
+    //unsure on this for adding it to the page  
+    storedPackingList[i].innerHTML += '<li>'; 
+  }
+}
+// console.log(packingList);
+//    // for writing to local storage
+//    localStorage.setItem('packingList', JSON.stringify(packingList))
+
+//    document.getElementById("results").innerHTML = localStorage.getItem("packingList");
 
   // CUSTOM ITEMS:
   
-  $("#custom-item-add").click( function() {
-    customItemAdd();
-    $("body, html").scrollTop( $("#custom-items").offset().top );
-  }); 
+//   $("#custom-item-add").click( function() {
+//     customItemAdd();
+//     $("body, html").scrollTop( $("#custom-items").offset().top );
+//   }); 
   
-  // Add custom item to the list of generated items.
-  function customItemAdd() {
-  
-    
-    event.preventDefault();
+//   // Add custom item to the list of generated items.
+//   function customItemAdd() {
   
     
-    if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
-      $("#custom-items").show(200);
-    }
+//     event.preventDefault();
   
     
-    $("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
-    $("#custom-items").delay(300).queue(function(){
-      $(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
-    });
+//     if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
+//       $("#custom-items").show(200);
+//     }
   
     
-    if ( $("#custom-item-value").val() ) {
-      customEl = document.createElement("p");
-      $(customEl).addClass("subitem");
-      $(customEl).text( $("#custom-item-value").val() );
-      document.querySelector("#custom-items .value").appendChild( customEl );
-      $("#custom-item-value").val('');
+//     $("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
+//     $("#custom-items").delay(300).queue(function(){
+//       $(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
+//     });
+  
+    
+//     if ( $("#custom-item-value").val() ) {
+//       customEl = document.createElement("p");
+//       $(customEl).addClass("subitem");
+//       $(customEl).text( $("#custom-item-value").val() );
+//       document.querySelector("#custom-items .value").appendChild( customEl );
+//       $("#custom-item-value").val('');
       
-      checkDone( $(customEl) );
-    }
+//       checkDone( $(customEl) );
+//     }
   
-  }
+  
  
   
      // for writing to local storage
