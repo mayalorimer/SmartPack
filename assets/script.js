@@ -1,3 +1,6 @@
+
+
+
 const landingPage = document.getElementById('landing-page');
 const flightSearch = document.getElementById('flight-search');
 const flightForm = document.getElementById('flight-query');
@@ -46,9 +49,9 @@ var city = "";
 var latitude ="";
 var longitude = "";
 //var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${flightIata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
-var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=";
-var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
-var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=4912d1df2260256904528ba36a474f20";
+var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=4912d1df2260256904528ba36a474f20";
+var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=4912d1df2260256904528ba36a474f20";
 
 
 
@@ -83,17 +86,17 @@ submitQuizBtn.addEventListener('click', function (event) {
   displayStorage();
 })
 
-submitQuizBtn.addEventListener('click', function (event) {
+
+//submitQuizBtn.addEventListener('click', function (event) {
     
-    }
-);
+//})
 
 function getQuizAnswers() {
     
 }
 
 function getApi(num, iata){
-    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=4912d1df2260256904528ba36a474f20`;
     console.log(flightUrl);
     fetch(flightUrl)
         .then(function (response) {
@@ -129,6 +132,81 @@ function getLatLon(arrIata) {
         });
 }
 
+
+    // fetch(citiesUrl)
+    //     .then(function displayCity(cities){
+    //         console.log(cities)
+    //         city = cities.city_name
+    //         console.log(city)
+    //     })
+    //     .then(function displayLongitude(longitude){
+    //         longitude = longitude.longitude
+    //         console.log (longitude)
+    //       })
+    //     .then(function displayLatitude(latitude){
+    //         latitude = latitude.latitude
+    //         console.log(latitude)
+    //       })
+
+    // fetch(airlineUrl)
+    //     .then( function displayAirline(airline){
+    //         console.log(airline)
+    //         airLine = airline.airline_name  
+    //         console.log(airLine)
+    //     })
+     }
+    //getApi();
+
+
+// function getApi() {
+    
+//     fetch(flightUrl)
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function(data){
+//         console.log(data)
+//         console.log(data.data[0])
+//     displayFlight(data.data[0])
+//     displayCity(data.data[0])
+//     displayLongitude(data.data[0])
+//     displayLatitude(data.data[0])
+//     displayAirline(data.data[0])
+//       })
+//     }
+     
+//   getApi();
+  
+//   function displayFlight(flight){
+//       console.log(flight)
+//       flightDate = flight.flight_date
+//       console.log(flightDate)
+//   }
+
+//   function displayCity(cities){
+//       console.log(cities)
+//       city = cities.city_name
+//       console.log(city)
+//     }
+
+//   function displayLongitude(longitude){
+//       longitude = longitude.longitude
+//       console.log (longitude)
+//     }
+
+//   function displayLatitude(latitude){
+//       latitude = latitude.latitude
+//       console.log(latitude)
+//     }
+   
+//     function displayAirline(airline){
+//         console.log(airline)
+//         airLine = airline.airline_name  
+//         console.log(airLine) 
+    
+
+//     }
+
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
 
 
@@ -148,7 +226,11 @@ function weatherApi(latitude, longitude){
             console.log(temp);
             console.log(weather);
         })
-}	
+}
+
+
+
+	
 
 // array to hold the items in the packing list
 var packingList = [];
