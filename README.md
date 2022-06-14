@@ -13,6 +13,9 @@ Smart Pack is a web application that allows users to input their flight number t
 ![Screen Shot 2022-06-14 at 11 53 50 AM](https://user-images.githubusercontent.com/100829940/173667483-5e05253f-20dd-4d13-b7ec-b775c7c79786.png)
 ![Screen Shot 2022-06-14 at 11 54 01 AM](https://user-images.githubusercontent.com/100829940/173667486-724e70c5-de15-4f8f-ab6e-b07c683f1388.png)
 
+## Demo
+
+![alt text](assets/photos/SmartPack.gif)
 
 ## Links
 - Github Repo: https://github.com/mayalorimer/SmartPack 
