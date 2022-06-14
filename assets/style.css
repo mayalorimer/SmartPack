@@ -75,6 +75,24 @@ img {
     margin-top: 5rem;
 }
 
+#list-title {
+    display: none;
+}
+
+.list {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    color: white;
+    box-sizing: border-box;
+    border-width: 2px;
+    border-style: solid; 
+    border-color: var(--smartblue);
+    background-color: var(--smartblue);
+    border-radius: 10px;
+}
+
 #submit-flight-btn {
     border: none;
     color: white;

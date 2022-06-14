@@ -10,6 +10,7 @@ const userQuiz = document.getElementById('user-quiz');
 const question = document.getElementById('question');
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
 const list = document.getElementById('packing-list');
+const listTitle = document.getElementById('list-title');
 
 
 var airline = document.getElementById("airline");
@@ -84,6 +85,8 @@ submitQuizBtn.addEventListener('click', function (event) {
     inbetween.value =  */
   createList(); 
   displayStorage();
+  userQuizHeader.style.display = "none";
+  listTitle.style.display = "block";
 })
 
 
@@ -313,7 +316,7 @@ function displayStorage(){
   //loops through the array and prints the scores
   for (var i = 0; i < storedPackingList.length; i++){
     //unsure on this for adding it to the page 
-    scoreList.textContent += '<li>' + storedPackingList[i] + '</li>';
+    scoreList.textContent += ' - '+ storedPackingList[i];
   }
 }
 // console.log(packingList);
