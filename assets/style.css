@@ -16,8 +16,17 @@
     
 }
 
-#flight-search {
-    
+#quiz-design {
+    box-sizing: border-box;
+    border-width: 15px;
+    border-style: solid;
+    color: white;
+    border-color: var(--smartblue);
+    background-color: var(--smartblue);
+    margin-top: 2.5rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    border-radius: 5px;
 }
 
 #flight-query {
@@ -37,7 +46,7 @@
 img {
     width: 50%;
     height: auto;
-    margin-top: 5rem;
+    margin-top: 10rem;
     margin-bottom: 3rem;
 }
 
@@ -74,12 +83,19 @@ img {
 }  
 
 #user-quiz {
-    padding-top: 3rem;
+    padding-top: 0rem;
     display: flexbox;
     flex-direction: column;
     align-content: space-between;
+    background-color: var(--smartblue);
+    color: white;
+}
+
+#submit-quiz-btn {
+    border: none;
     background-color: #fff;
-    color: black;
+    color: var(--smartblue);
+    border-radius: 5px;
 }
 
 main {
