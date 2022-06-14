@@ -1,3 +1,6 @@
+
+
+
 const landingPage = document.getElementById('landing-page');
 const flightSearch = document.getElementById('flight-search');
 const flightForm = document.getElementById('flight-query');
@@ -7,6 +10,7 @@ const userQuiz = document.getElementById('user-quiz');
 const question = document.getElementById('question');
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
 const list = document.getElementById('packing-list');
+const listTitle = document.getElementById('list-title');
 
 
 var airline = document.getElementById("airline");
@@ -33,6 +37,9 @@ everything = false;
 cold = false; 
 hot = false; 
 inbetween = false; 
+var Ktemp;
+var temp; 
+var weather;
 
 
 var flightNum = "";
@@ -43,9 +50,9 @@ var city = "";
 var latitude ="";
 var longitude = "";
 //var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${flightIata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
-var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=";
-var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=55013be62a6b251b0154473a727b8052";
-var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=55013be62a6b251b0154473a727b8052";
+var citiesUrl = "http://api.aviationstack.com/v1/cities?latitude&longitude&city_name&access_key=4912d1df2260256904528ba36a474f20";
+var originalUrl = "http://api.aviationstack.com/v1/flights?access_key=4912d1df2260256904528ba36a474f20";
+var airlineUrl = "http://api.aviationstack.com/v1/airlines?airline_name&access_key=4912d1df2260256904528ba36a474f20";
 
 
 
@@ -66,7 +73,8 @@ flightSearchBtn.addEventListener('click', function(event) {
 
 
 submitQuizBtn.addEventListener('click', function (event) {
-    beachBum.value =
+  event.preventDefault(); 
+/*     beachBum.value =
     adventurer.value = 
     both.value = 
     business.value = 
@@ -74,8 +82,11 @@ submitQuizBtn.addEventListener('click', function (event) {
     everything.value = 
     cold.value =
     hot.value = 
-    inbetween.value = 
-    createList(); 
+    inbetween.value =  */
+  createList(); 
+  displayStorage();
+  userQuizHeader.style.display = "none";
+  listTitle.style.display = "block";
 })
 
 
@@ -88,7 +99,7 @@ function getQuizAnswers() {
 }
 
 function getApi(num, iata){
-    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=49a287fe1847b2a2d70c2ef5750a2fab`;
+    var flightUrl = `http://api.aviationstack.com/v1/flights?flight_iata=${num}&dep_iata=${iata}&access_key=4912d1df2260256904528ba36a474f20`;
     console.log(flightUrl);
     fetch(flightUrl)
         .then(function (response) {
@@ -96,16 +107,35 @@ function getApi(num, iata){
         })
         .then(function (data){
             console.log(data)
-            
-            
+            var arrivalIata = data.data[0].arrival.iata 
+            console.log(arrivalIata);
+            getLatLon(arrivalIata);   
          })
          //Date
-         .then(function displayFlight(flight){
-             console.log(flight)
-             flightDate = flight.flight_date
-             console.log(flightDate)
-            })
-          //City  
+        //  .then(function displayFlight(flight){
+        //      console.log(flight)
+        //      flightDate = flight.flight_date
+        //      console.log(flightDate)
+        //     })
+        //   //City  
+    
+function getLatLon(arrIata) {
+    var latLongUrl = `https://airlabs.co/api/v9/airports?iata_code=${arrIata}&api_key=b6cd1a32-4676-4ba7-b3c5-48da35d6e7cf`
+    console.log(latLongUrl);
+    fetch(latLongUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data)
+        var lat = data.response[0].lat    
+        var lng = data.response[0].lng
+        console.log(lat, lng);
+        weatherApi(lat, lng);
+        });
+}
+
+
     // fetch(citiesUrl)
     //     .then(function displayCity(cities){
     //         console.log(cities)
@@ -181,15 +211,12 @@ function getApi(num, iata){
 //     }
 
 //var apiWeatherKey = c99c17905b00b5b873d957ca08c3669d;
-var Ktemp;
-var temp; 
-var weather;
 
-var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
 
 
 //function to call weather api, returns either rain or not and the average temperature
-function weatherApi(){
+function weatherApi(latitude, longitude){
+    var weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=c99c17905b00b5b873d957ca08c3669d';
     fetch(weatherUrl)
         .then(function(response){
             return response.json();
@@ -205,8 +232,7 @@ function weatherApi(){
 }
 
 
-// returns temp and weather which one of the possible returns is rain
-weatherApi();
+
 	
 
 // array to hold the items in the packing list
@@ -226,100 +252,116 @@ function createList(){
   //logic statements to create the packing list
   if (hot || inbetween) {
     if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt ");
     }
     else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "light jacket");
+        packingList.push("long pants", "long sleeve shirt", "light jacket ");
     }
     else if (temp >= 65 && temp < 75) {
-        packingList.push("shorts", "short sleeves", "light jacket"); 
+        packingList.push("shorts", "short sleeves", "light jacket "); 
     }
     else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals");
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals ");
     }
   } 
   //if you run cold
   else {
     if (temp < 50) {
-        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt");
+        packingList.push("long pants", "long sleeve shirt", "sweater", "winter jacket", "closed toe shoes", "base layer shirt ");
     }
     else if (temp >= 50 && temp < 65) {
-        packingList.push("long pants", "long sleeve shirt", "moderate jacket");
+        packingList.push("long pants", "long sleeve shirt", "moderate jacket ");
     }
     else if (temp >= 65 && temp < 75) {
-        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket"); 
+        packingList.push("long pants", "short sleeves", "long sleeves", "light jacket "); 
     }
     else {
-        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket");
+        packingList.push("shorts", "short sleeves", "t-shirt", "sandals", "light jacket ");
     }
   }
 
   // goes through quiz variables for question 2
   if (business) {
-    packingList.push("dress shoes", "slacks", "blazer", "formal top");
+    packingList.push("dress shoes", "slacks", "blazer", "formal top ");
   }
   else if (pleasure) {
-    packingList.push("flip flops", "going out clothes");
+    packingList.push("flip flops", "going out clothes ");
   }
   else {
-    packingList.push("dress shoes", "slacks", "blazer", "formal top", "flip flops", "going out clothes");
+    packingList.push("dress shoes", "slacks", "blazer", "formal top", "flip flops", "going out clothes ");
   }
 
   // question 1 variables for packing list
   if (beachBum) {
-    packingList.push("bathing suit", "flip flops");
+    packingList.push("bathing suit", "flip flops ");
   }
   else if (adventurer){
-  packingList.push("sneakers", "athletic top", "athletic bottoms");
+  packingList.push("sneakers", "athletic top", "athletic bottoms ");
   }
   else { 
-    packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit");
+    packingList.push("sneakers", "flip flops", "athletic outfit", "bathing suit ");
   }
+
+  // adds to local storage
+  localStorage.setItem('packingList', JSON.stringify(packingList))
+
 }
 
 
-   // for writing to local storage
-   localStorage.setItem('packingList', JSON.stringify(packingList))
+var scoreList = document.querySelector(".list");
+     //prints the stored list to the page
+function displayStorage(){
+  var storedPackingList = JSON.parse(localStorage.getItem("packingList"));
+  console.log(storedPackingList); 
+  //loops through the array and prints the scores
+  for (var i = 0; i < storedPackingList.length; i++){
+    //unsure on this for adding it to the page 
+    scoreList.textContent += ' - '+ storedPackingList[i];
+  }
+}
+// console.log(packingList);
+//    // for writing to local storage
+//    localStorage.setItem('packingList', JSON.stringify(packingList))
 
-   document.getElementById("results").innerHTML = localStorage.getItem("packingList");
+//    document.getElementById("results").innerHTML = localStorage.getItem("packingList");
 
   // CUSTOM ITEMS:
   
-  $("#custom-item-add").click( function() {
-    customItemAdd();
-    $("body, html").scrollTop( $("#custom-items").offset().top );
-  }); 
+//   $("#custom-item-add").click( function() {
+//     customItemAdd();
+//     $("body, html").scrollTop( $("#custom-items").offset().top );
+//   }); 
   
-  // Add custom item to the list of generated items.
-  function customItemAdd() {
-  
-    
-    event.preventDefault();
+//   // Add custom item to the list of generated items.
+//   function customItemAdd() {
   
     
-    if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
-      $("#custom-items").show(200);
-    }
+//     event.preventDefault();
   
     
-    $("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
-    $("#custom-items").delay(300).queue(function(){
-      $(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
-    });
+//     if ( !$("#custom-items").show() && $("#custom-item-value").val() ) {
+//       $("#custom-items").show(200);
+//     }
   
     
-    if ( $("#custom-item-value").val() ) {
-      customEl = document.createElement("p");
-      $(customEl).addClass("subitem");
-      $(customEl).text( $("#custom-item-value").val() );
-      document.querySelector("#custom-items .value").appendChild( customEl );
-      $("#custom-item-value").val('');
+//     $("#custom-items").css("boxShadow", "0 0 5rem rgba(255,255,0,0.7)");
+//     $("#custom-items").delay(300).queue(function(){
+//       $(this).css("boxShadow", "0 0 0rem rgba(255,255,0,0.7)").dequeue();
+//     });
+  
+    
+//     if ( $("#custom-item-value").val() ) {
+//       customEl = document.createElement("p");
+//       $(customEl).addClass("subitem");
+//       $(customEl).text( $("#custom-item-value").val() );
+//       document.querySelector("#custom-items .value").appendChild( customEl );
+//       $("#custom-item-value").val('');
       
-      checkDone( $(customEl) );
-    }
+//       checkDone( $(customEl) );
+//     }
   
-  }
+  
  
   
      // for writing to local storage
-     localStorage.setItem('list', JSON.stringify(list))
+//     localStorage.setItem('list', JSON.stringify(list))
