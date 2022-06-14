@@ -29,8 +29,9 @@
     border-color: var(--smartblue);
     background-color: var(--smartblue);
     margin-top: 2.5rem;
-    margin-left: 20rem;;
+    margin-left: 20rem;
     margin-right: 20rem;
+    border-radius: 5px;
 }
 
 img {
@@ -58,6 +59,7 @@ img {
     border-style: solid; 
     border-color: var(--smartblue);
     background-color: var(--smartblue);
+    border-radius: 5px;
 }
 
 #note {
@@ -68,6 +70,7 @@ img {
     border: none;
     color: white;
     background-color: var(--smartblue);
+    border-radius: 5px;
 }  
 
 #user-quiz {
